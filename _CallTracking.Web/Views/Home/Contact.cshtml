@@ -1,0 +1,64 @@
+﻿@model CallTracking.Web.Models.ContactViewModel
+    
+@{
+    ViewBag.Title = "Contact";
+}
+<h2 >How can we help?</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Email, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Email)
+                @Html.ValidationMessageFor(model => model.Email, null, new { @class="clearfix" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Name)
+                @Html.ValidationMessageFor(model => model.Name, null, new { @class = "clearfix" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Company, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Company)
+                @Html.ValidationMessageFor(model => model.Company, null, new { @class = "clearfix" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Phone, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Phone)
+                @Html.ValidationMessageFor(model => model.Phone, null, new { @class = "clearfix" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Enquiry, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Enquiry, new { @class = "form-control", rows=6 })
+                @Html.ValidationMessageFor(model => model.Enquiry, null, new { @class = "clearfix" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Click to Send Enquiry" class="btn btn-default btn-block" />
+            </div>
+        </div>
+    </div>
+}
+
+        <div class="row">
+            <div class="col-xs-12">Or, get in touch with us</div>
+        </div>
+        <div class="form-group">
+            <div class="col-xs-12">
+                <a class="btn btn-primary btn-lg btn-block" href="mailto:enquiries@callerinsights.co.uk">Email Us</a>
+            </div>
+        </div>
